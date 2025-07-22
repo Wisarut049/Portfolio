@@ -21,51 +21,82 @@ h1 {
   margin: auto;
 }
 
-/* ภาพพร้อมคำอธิบายซ้อนบน */
-.image-box {
-  position: relative;
-  margin: 10px;
-  flex: 1;
-  overflow: hidden;
+/* ภาพบนสุด */
+.top {
+  width: 60%;
+  margin: 0 auto 40px auto;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
 }
 
-.image-box img {
+.top img {
   width: 100%;
   height: auto;
   display: block;
   transition: 0.3s ease;
-  cursor: pointer;
 }
 
-.image-box:hover img {
+.top:hover img {
   transform: scale(1.03);
 }
 
-/* คำอธิบายซ้อน */
-.caption {
+/* คำบรรยายภาพบนสุด */
+.top .caption {
   position: absolute;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
   width: 100%;
   padding: 10px;
-  font-size: 1em;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 1.1em;
+  text-align: center;
 }
 
 /* แถวภาพ */
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 20px;
+  justify-content: space-between;
   margin-top: 30px;
 }
 
-/* ภาพบนสุด */
-.top {
-  margin-bottom: 40px;
+/* กล่องรูปภาพในแถว ให้ 2 ต่อแถวเท่า ๆ กัน */
+.row .image-box {
+  flex: 1 1 48%;
+  max-width: 48%;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* รูปในกล่อง */
+.row .image-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.3s ease;
+}
+
+.row .image-box:hover img {
+  transform: scale(1.03);
+}
+
+/* คำบรรยายภาพในกล่อง */
+.row .image-box .caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 1em;
+  text-align: center;
 }
 
 /* กล่องแสดงภาพขยาย */
@@ -94,18 +125,27 @@ h1 {
   cursor: pointer;
 }
 
-/* Responsive */
+/* Responsive สำหรับมือถือ */
 @media (max-width: 768px) {
+  .top {
+    width: 90%;
+  }
+
   .row {
     flex-direction: column;
     gap: 15px;
   }
 
-  .caption {
-    font-size: 0.9em;
+  .row .image-box {
+    max-width: 100%;
+    flex: 1 1 100%;
   }
 
   h1 {
     font-size: 2em;
+  }
+
+  .caption {
+    font-size: 0.9em;
   }
 }
