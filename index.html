@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>แฟ้มสะสมงาน</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>แฟ้มสะสมงานของฉัน</h1>
+
+  <div class="container">
+    <!-- รูปบนสุด -->
+    <div class="image-box top">
+      <img src="41159.jpg" alt="ภาพผลงานหลัก" class="clickable" />
+      <div class="caption">ได้รับทุนการศึกษาวันไหว้ครู</div>
+    </div>
+
+    <!-- แถวที่ 2 -->
+    <div class="row">
+      <div class="image-box">
+        <img src="41158_0.jpg" alt="อบรมนักธรรมตรี" class="clickable" />
+        <div class="caption">ให้ความรู้ในการอบรมนักธรรมชั้นตรี</div>
+      </div>
+      <div class="image-box">
+        <img src="41157_0.jpg" alt="สอบนักธรรมเอก" class="clickable" />
+        <div class="caption">สอบได้นักธรรมชั้นเอก</div>
+      </div>
+    </div>
+
+    <!-- แถวที่ 3 -->
+    <div class="row">
+      <div class="image-box">
+        <img src="41156_0.jpg" alt="แข่งทักษะ 2567" class="clickable" />
+        <div class="caption">รางวัลรองชนะเลิศอันดับ 1 แข่งขันทักษะฯ พ.ศ.2567</div>
+      </div>
+      <div class="image-box">
+        <img src="41155_0.jpg" alt="แข่งทักษะ 2564" class="clickable" />
+        <div class="caption">รางวัลรองชนะเลิศอันดับ 1 แข่งขันทักษะฯ พ.ศ.2564</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- กล่องแสดงภาพขยาย -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const images = document.querySelectorAll('.clickable');
+    const closeBtn = document.querySelector('.close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+/* พื้นหลังและฟอนต์ */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+/* หัวเรื่อง */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #1565c0;
+}
+
+/* กล่องรวมภาพ */
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ภาพพร้อมคำอธิบายซ้อนบน */
+.image-box {
+  position: relative;
+  margin: 10px;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.image-box:hover img {
+  transform: scale(1.03);
+}
+
+/* คำอธิบายซ้อน */
+.caption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+}
+
+/* แถวภาพ */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* ภาพบนสุด */
+.top {
+  margin-bottom: 40px;
+}
+
+/* กล่องแสดงภาพขยาย */
+.lightbox {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 999;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .caption {
+    font-size: 0.9em;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}
